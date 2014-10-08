@@ -49,15 +49,15 @@ Unless explicitly contradicted below, assume that all of Apple's guidelines appl
 
 ## Declarations
 
- * Never declare an ivar unless you need to change its type from its declared property.
- * Don’t use line breaks in method declarations.
- * Prefer exposing an immutable type for a property if it being mutable is an implementation detail. This is a valid reason to declare an ivar for a property.
- * Always declare memory-management semantics even on `readonly` properties.
- * Declare properties `readonly` if they are only set once in `-init`.
+ * Avoid using ivars
+ * Make use line breaks in method declarations (xcode will help line up colons) for readability
+ * Always declare memory-management semantics even on `readonly`
+ * Always declare non-atomic
+ * Prefer lazy instantiation for readonly properties
  * Don't use `@synthesize` unless the compiler requires it. Note that optional properties in protocols must be explicitly synthesized in order to exist.
  * Declare properties `copy` if they return immutable objects and aren't ever mutated in the implementation. `strong` should only be used when exposing a mutable object, or an object that does not conform to `<NSCopying>`.
- * Avoid `weak` properties whenever possible. A long-lived weak reference is usually a code smell that should be refactored out.
- * Instance variables should be prefixed with an underscore (just like when implicitly synthesized).
+ * `weak` properties should be used for delegates
+ * If you must use an ivar: Instance variables should be prefixed with an underscore (just like when implicitly synthesized).
  * Don't put a space between an object type and the protocol it conforms to.
 
 ```objc
@@ -68,14 +68,14 @@ Unless explicitly contradicted below, assume that all of Apple's guidelines appl
  * C function declarations should have no space before the opening parenthesis, and should be namespaced just like a class.
 
 ```objc
-void GHAwesomeFunction(BOOL hasSomeArgs);
+void MCAwesomeFunction(BOOL hasSomeArgs);
 ```
 
  * Constructors should generally return [`instancetype`](http://clang.llvm.org/docs/LanguageExtensions.html#related-result-types) rather than `id`.
  * Prefer C99 struct initialiser syntax to helper functions (such as `CGRectMake()`).
 
 ```objc
-  CGRect rect = { .origin.x = 3.0, .origin.y = 12.0, .size.width = 15.0, .size.height = 80.0 };
+  CGRect rect = (CGRect){ .origin.x = 3.0, .origin.y = 12.0, .size.width = 15.0, .size.height = 80.0 };
    ```
 
 ## Expressions
