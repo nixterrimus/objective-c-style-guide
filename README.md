@@ -4,7 +4,6 @@ Unless explicitly contradicted below, assume that all of Apple's guidelines appl
 ## Whitespace
 
  * 4 spaces for a tab (like Xcode does)
- * End files with a newline.
  * Make liberal use of vertical whitespace to divide code into logical chunks.
  * Don’t leave trailing whitespace.
     * Not even leading indentation on blank lines.
