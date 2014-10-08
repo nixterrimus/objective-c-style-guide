@@ -14,34 +14,35 @@ Unless explicitly contradicted below, assume that all of Apple's guidelines appl
  * Comments should be parseable by Xcode
  * Document whether object parameters allow `nil` as a value.
  * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
+ * Make use of pragma mark with `-`'s for good organization
 
 ```objc
-#pragma mark Properties
+#pragma mark - Properties
 
 @dynamic someProperty;
 
 - (void)setCustomProperty:(id)value {}
 
-#pragma mark Lifecycle
+#pragma mark - Lifecycle
 
 + (instancetype)objectWithThing:(id)thing {}
 - (instancetype)init {}
 
-#pragma mark Drawing
+#pragma mark - Drawing
 
 - (void)drawRect:(CGRect) {}
 
-#pragma mark Another functional grouping
+#pragma mark - Another functional grouping
 
-#pragma mark GHSuperclass
+#pragma mark - GHSuperclass
 
 - (void)someOverriddenMethod {}
 
-#pragma mark NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {}
 
-#pragma mark NSObject
+#pragma mark - NSObject
 
 - (NSString *)description {}
 ```
