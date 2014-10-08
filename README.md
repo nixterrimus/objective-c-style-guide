@@ -11,9 +11,9 @@ Unless explicitly contradicted below, assume that all of Apple's guidelines appl
 
 ## Documentation and Organization
 
- * All method declarations should be documented.
+ * All public method declarations should be documented.
  * Comments should be hard-wrapped at 80 characters.
- * Comments should be [Tomdoc](http://tomdoc.org/)-style.
+ * Comments should be parseable by Xcode
  * Document whether object parameters allow `nil` as a value.
  * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
